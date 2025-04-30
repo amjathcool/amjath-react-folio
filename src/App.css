@@ -40,3 +40,9 @@
 .read-the-docs {
   color: #888;
 }
+
+/* For smoother mobile behavior */
+body {
+  -webkit-text-size-adjust: 100%; /* Prevents zooming text in Safari */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
