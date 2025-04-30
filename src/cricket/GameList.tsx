@@ -18,7 +18,6 @@ const formatTime = (dateTimeStr: string): string =>
   });
 
 const GameList: React.FC<GameListProps> = ({ games, teamName }) => {
-  const [selectedGame, setSelectedGame] = useState<Game | null>(null);
   const [displayGames, setDisplayGames] = useState<Game[]>(games);
   const [sortKey, setSortKey] = useState<keyof Game>("dateTime");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
@@ -87,7 +86,6 @@ const GameList: React.FC<GameListProps> = ({ games, teamName }) => {
             className={classNames(styles.row, {
               [styles.nextGame]: nextGame && nextGame.id === game.id,
             })}
-            onClick={() => setSelectedGame(game)}
           >
             <div>{game.opponent}</div>
             <div>{game.tournament}</div>
