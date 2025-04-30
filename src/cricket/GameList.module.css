@@ -131,23 +131,23 @@ input:checked + .slider:before {
 .scorecardLink {
     color: #0000ff;
     text-decoration: underline;
-  }
+}
   
   /* Override in dark mode */
-  .dark .scorecardLink {
+.dark .scorecardLink {
     color: #66d9ef;
-  }
+}
 
-  .scorecardLink:hover {
+.scorecardLink:hover {
     text-decoration: none;
-  }
+}
 
-  .nextGame {
+.nextGame {
     background-color: #66cdaa;
     border-left: 4px solid #FF6347;
-  }
-  
-  .dark .nextGame {
+}
+
+.dark .nextGame {
     background-color:  #4169e1;
     border-left: 4px solid #00ffff;
-  }
+}
