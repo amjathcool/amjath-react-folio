@@ -129,7 +129,7 @@ input:checked + .slider:before {
 }
 
 .scorecardLink {
-    color: blue;
+    color: #0000ff;
     text-decoration: underline;
   }
   
@@ -140,4 +140,14 @@ input:checked + .slider:before {
 
   .scorecardLink:hover {
     text-decoration: none;
+  }
+
+  .nextGame {
+    background-color: #66cdaa;
+    border-left: 4px solid #FF6347;
+  }
+  
+  .dark .nextGame {
+    background-color:  #4169e1;
+    border-left: 4px solid #00ffff;
   }

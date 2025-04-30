@@ -44,6 +44,14 @@ const GameList: React.FC<GameListProps> = ({ games, teamName }) => {
     window.open(url, "_blank"); // Open in new tab
   };
 
+  // Find game with the nearest future dateTime
+  const now = new Date();
+  const nextGame = games
+    .filter((game) => new Date(game.dateTime) > now)
+    .sort(
+      (a, b) => new Date(a.dateTime).getTime() - new Date(b.dateTime).getTime()
+    )[0];
+
   return (
     <div className={classNames(styles.container, { [styles.dark]: darkMode })}>
       <div className={styles.header}>
@@ -103,7 +111,9 @@ const GameList: React.FC<GameListProps> = ({ games, teamName }) => {
         {displayGames.map((game) => (
           <div
             key={game.id}
-            className={styles.row}
+            className={classNames(styles.row, {
+              [styles.nextGame]: nextGame && nextGame.id === game.id,
+            })}
             onClick={() => setSelectedGame(game)}
           >
             <div>{game.opponent}</div>
