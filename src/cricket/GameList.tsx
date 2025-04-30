@@ -70,7 +70,7 @@ const GameList: React.FC<GameListProps> = ({ games, teamName }) => {
         </div>
       </div>
 
-      {selectedGame && (
+      {/* {selectedGame && (
         <div className={styles.selected}>
           <h2>Selected Game</h2>
           <p>
@@ -95,7 +95,7 @@ const GameList: React.FC<GameListProps> = ({ games, teamName }) => {
             <strong>Scorecard:</strong> {selectedGame.scorecard}
           </p>
         </div>
-      )}
+      )} */}
 
       <div className={styles.grid}>
         <div className={styles.headerRow}>
