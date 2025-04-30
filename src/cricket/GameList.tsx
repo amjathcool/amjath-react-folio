@@ -1,5 +1,5 @@
 const GameList = () => {
-  return <div>Amjath's Game List</div>;
+  return <div>Welcome to Amjath's Folio</div>;
 };
 
 export default GameList;
