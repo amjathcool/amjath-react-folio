@@ -1,0 +1,143 @@
+.container {
+    font-family: sans-serif;
+    padding: 16px;
+    max-width: 1200px;
+    margin: auto;
+    background-color: #ffffff;
+    color: #000000;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dark {
+    background-color: #1f1f1f;
+    color: #ffffff;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Dark mode toggle switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    top: 0; left: 0;
+    right: 0; bottom: 0;
+    background-color: #ccc;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: #4caf50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px);
+}
+
+/* Selected Game */
+.selected {
+    padding: 16px;
+    background-color: #e6f2ff;
+    border-left: 4px solid #2196f3;
+    border-radius: 4px;
+    margin-bottom: 24px;
+}
+
+.dark .selected {
+    background-color: #334455;
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+}
+
+@media (min-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.headerRow, .row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    align-items: center;
+}
+
+.headerRow {
+    font-weight: bold;
+    background-color: #f0f0f0;
+}
+
+.dark .headerRow {
+    background-color: #444;
+}
+
+.row:hover {
+    background-color: #f9f9f9;
+}
+
+.dark .row:hover {
+    background-color: #333;
+}
+
+.darkModeToggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.scorecardLink {
+    color: blue;
+    text-decoration: underline;
+  }
+  
+  /* Override in dark mode */
+  .dark .scorecardLink {
+    color: #66d9ef;
+  }
+
+  .scorecardLink:hover {
+    text-decoration: none;
+  }
