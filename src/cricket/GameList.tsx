@@ -70,33 +70,6 @@ const GameList: React.FC<GameListProps> = ({ games, teamName }) => {
         </div>
       </div>
 
-      {/* {selectedGame && (
-        <div className={styles.selected}>
-          <h2>Selected Game</h2>
-          <p>
-            <strong>Opponent:</strong> {selectedGame.opponent}
-          </p>
-          <p>
-            <strong>Tournament:</strong> {selectedGame.tournament}
-          </p>
-          <p>
-            <strong>Date:</strong> {formatDate(selectedGame.dateTime)}
-          </p>
-          <p>
-            <strong>Time:</strong> {formatTime(selectedGame.dateTime)}
-          </p>
-          <p>
-            <strong>Venue:</strong> {selectedGame.venue}
-          </p>
-          <p>
-            <strong>Result:</strong> {selectedGame.result}
-          </p>
-          <p>
-            <strong>Scorecard:</strong> {selectedGame.scorecard}
-          </p>
-        </div>
-      )} */}
-
       <div className={styles.grid}>
         <div className={styles.headerRow}>
           <div onClick={() => toggleSort("opponent")}>Opponent</div>
