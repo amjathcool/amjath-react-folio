@@ -69,31 +69,43 @@ const GameList: React.FC<GameListProps> = ({ games, teamName }) => {
         </div>
       </div>
 
-      <div className={styles.grid}>
-        <div className={styles.headerRow}>
-          <div onClick={() => toggleSort("opponent")}>Opponent</div>
-          <div onClick={() => toggleSort("tournament")}>Tournament</div>
-          <div onClick={() => toggleSort("dateTime")}>Date</div>
-          <div>Time</div>
-          <div onClick={() => toggleSort("venue")}>Venue</div>
-          <div onClick={() => toggleSort("result")}>Result</div>
-          <div>Scorecard</div>
+      <div className={styles.grid} role="table">
+        <div className={styles.headerRow} role="row">
+          <div role="columnheader" onClick={() => toggleSort("opponent")}>
+            Opponent
+          </div>
+          <div role="columnheader" onClick={() => toggleSort("tournament")}>
+            Tournament
+          </div>
+          <div role="columnheader" onClick={() => toggleSort("dateTime")}>
+            Date
+          </div>
+          <div role="columnheader">Time</div>
+          <div role="columnheader" onClick={() => toggleSort("venue")}>
+            Venue
+          </div>
+          <div role="columnheader" onClick={() => toggleSort("result")}>
+            Result
+          </div>
+          <div role="columnheader">Scorecard</div>
         </div>
 
         {displayGames.map((game) => (
           <div
             key={game.id}
+            role="row"
             className={classNames(styles.row, {
               [styles.nextGame]: nextGame && nextGame.id === game.id,
             })}
           >
-            <div>{game.opponent}</div>
-            <div>{game.tournament}</div>
-            <div>{formatDate(game.dateTime)}</div>
-            <div>{formatTime(game.dateTime)}</div>
-            <div>{game.venue}</div>
-            <div>{game.result}</div>
+            <div role="cell">{game.opponent}</div>
+            <div role="cell">{game.tournament}</div>
+            <div role="cell">{formatDate(game.dateTime)}</div>
+            <div role="cell">{formatTime(game.dateTime)}</div>
+            <div role="cell">{game.venue}</div>
+            <div role="cell">{game.result}</div>
             <div
+              role="cell"
               onClick={(e) => handleScorecardClick(e, game.scorecard)}
               className={styles.scorecardLink}
             >

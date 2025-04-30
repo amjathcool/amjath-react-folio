@@ -1,11 +1,13 @@
 .container {
     font-family: sans-serif;
     padding: 16px;
-    max-width: 1200px;
+    width: 100%; /* Ensure it stretches across the screen */
+    max-width: 100%; /* Ensure it doesn’t overflow beyond the screen */
     margin: auto;
     background-color: #ffffff;
     color: #000000;
     transition: background-color 0.3s, color 0.3s;
+    box-sizing: border-box; /* Ensure padding doesn’t affect width */
 }
 
 .dark {
