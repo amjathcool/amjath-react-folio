@@ -54,7 +54,7 @@ const GameList: React.FC<GameListProps> = ({ games, teamName }) => {
   return (
     <div className={classNames(styles.container, { [styles.dark]: darkMode })}>
       <div className={styles.header}>
-        <h1 className={styles.title}>{teamName} Games List</h1>
+        <h1 className={styles.title}>{teamName} Games</h1>
         <div className={styles.darkModeToggle}>
           <label htmlFor="darkModeToggle">Dark Mode</label>
           <label className={styles.switch}>
