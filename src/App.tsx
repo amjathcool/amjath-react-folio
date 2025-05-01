@@ -16,7 +16,7 @@ const App: React.FC = () => {
         <Route path="/:teamId" element={<GameListRouterWrapper />} />
         <Route path="*" element={<div>404: Page Not Found</div>} />
         <Route
-          path="/"
+          path="/try"
           element={<GameGrid teamName="Amjath" games={swlegendGames} />}
         />
       </Routes>
