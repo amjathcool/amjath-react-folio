@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./GameList.module.css";
 import classNames from "classnames";
 import { Game } from "./game";
@@ -17,11 +17,15 @@ const formatTime = (dateTimeStr: string): string =>
     minute: "2-digit",
   });
 
-const GameList: React.FC<GameListProps> = ({ games, teamName }) => {
+const GameList = ({ games, teamName }: GameListProps) => {
   const [displayGames, setDisplayGames] = useState<Game[]>(games);
   const [sortKey, setSortKey] = useState<keyof Game>("dateTime");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
   const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    document.body.classList.toggle(styles.dark, darkMode);
+  }, [darkMode]);
 
   const toggleSort = (key: keyof Game) => {
     const order = key === sortKey && sortOrder === "asc" ? "desc" : "asc";

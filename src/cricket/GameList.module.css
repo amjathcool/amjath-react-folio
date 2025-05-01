@@ -3,6 +3,9 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden; /* Prevent horizontal scroll */
+    background-color: #ffffff;
+    color: #000000;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
@@ -15,6 +18,9 @@ body {
     color: #000000;
     transition: background-color 0.3s, color 0.3s;
     box-sizing: border-box; /* Ensure padding doesn’t affect width */
+    --grid-font-size: 14px; /* Set your desired font size here and this variable can be used for all of container's children*/
+    font-size: var(--grid-font-size);
+    font-family: sans-serif;
 }
 
 .dark {
@@ -30,7 +36,7 @@ body {
 }
 
 .title {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
 }
 
