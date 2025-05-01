@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./GameList.module.css";
 import classNames from "classnames";
 import { Game } from "./game";
+import { track } from "@vercel/analytics";
 
 type GameListProps = {
   teamName: string;
@@ -40,11 +41,18 @@ const GameList = ({ games, teamName }: GameListProps) => {
     setSortKey(key);
     setSortOrder(order);
     setDisplayGames(sorted);
+    track("Sort by " + key);
   };
 
   const handleScorecardClick = (e: React.MouseEvent, url: string) => {
     e.stopPropagation(); // Prevent row click
     window.open(url, "_blank"); // Open in new tab
+    track("View Scorecard");
+  };
+
+  const handleDarkMode = () => {
+    setDarkMode((prev) => !prev);
+    track("Dark Mode");
   };
 
   // Find game with the nearest future dateTime
@@ -66,7 +74,7 @@ const GameList = ({ games, teamName }: GameListProps) => {
               id="darkModeToggle"
               type="checkbox"
               checked={darkMode}
-              onChange={() => setDarkMode((prev) => !prev)}
+              onChange={() => handleDarkMode()}
             />
             <span className={styles.slider}></span>
           </label>
