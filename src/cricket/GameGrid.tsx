@@ -11,8 +11,7 @@ const GameGrid = ({ teamName, games }: GameListProps) => {
   const colDefs: ColDef[] = [
     { field: "opponent" },
     { field: "tournament" },
-    { field: "date" },
-    { field: "time" },
+    { field: "dateTime" },
     { field: "venue" },
     { field: "result" },
     { field: "scorecard" },

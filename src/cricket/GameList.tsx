@@ -8,14 +8,14 @@ type GameListProps = {
   games: Game[];
 };
 
-const formatDate = (dateTimeStr: string): string =>
-  new Date(dateTimeStr).toLocaleDateString();
-
-const formatTime = (dateTimeStr: string): string =>
-  new Date(dateTimeStr).toLocaleTimeString([], {
+const formatDateTime = (dateTimeStr: string): string => {
+  const dateStr = new Date(dateTimeStr).toLocaleDateString();
+  const timeStr = new Date(dateTimeStr).toLocaleTimeString([], {
     hour: "2-digit",
     minute: "2-digit",
   });
+  return dateStr + " " + timeStr;
+};
 
 const GameList = ({ games, teamName }: GameListProps) => {
   const [displayGames, setDisplayGames] = useState<Game[]>(games);
@@ -82,9 +82,8 @@ const GameList = ({ games, teamName }: GameListProps) => {
             Tournament
           </div>
           <div role="columnheader" onClick={() => toggleSort("dateTime")}>
-            Date
+            Date Time
           </div>
-          <div role="columnheader">Time</div>
           <div role="columnheader" onClick={() => toggleSort("venue")}>
             Venue
           </div>
@@ -104,8 +103,7 @@ const GameList = ({ games, teamName }: GameListProps) => {
           >
             <div role="cell">{game.opponent}</div>
             <div role="cell">{game.tournament}</div>
-            <div role="cell">{formatDate(game.dateTime)}</div>
-            <div role="cell">{formatTime(game.dateTime)}</div>
+            <div role="cell">{formatDateTime(game.dateTime)}</div>
             <div role="cell">{game.venue}</div>
             <div role="cell">{game.result}</div>
             <div
