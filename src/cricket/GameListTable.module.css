@@ -183,8 +183,8 @@ body {
       max-width: 50px;
     }
 
-    .opponent { max-width: 55px; }
-    .tournament { max-width: 55px; }
+    .opponent { max-width: 60px; }
+    .tournament { max-width: 65px; }
     .dateTime { max-width: 55px; }
     .venue { max-width: 25px; }
     .result { max-width: 25px; }
