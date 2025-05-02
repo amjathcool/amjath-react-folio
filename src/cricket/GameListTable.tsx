@@ -84,22 +84,44 @@ const GameListTable = ({ games, teamName }: GameListProps) => {
       <div className={styles.gridWrapper}>
         <div className={styles.grid} role="table">
           <div className={styles.headerRow} role="row">
-            <div role="columnheader" onClick={() => toggleSort("opponent")}>
+            <div
+              role="columnheader"
+              className={styles.opponent}
+              onClick={() => toggleSort("opponent")}
+            >
               Opponent
             </div>
-            <div role="columnheader" onClick={() => toggleSort("tournament")}>
+            <div
+              role="columnheader"
+              className={styles.tournament}
+              onClick={() => toggleSort("tournament")}
+            >
               Tournament
             </div>
-            <div role="columnheader" onClick={() => toggleSort("dateTime")}>
+            <div
+              role="columnheader"
+              className={styles.dateTime}
+              onClick={() => toggleSort("dateTime")}
+            >
               Date Time
             </div>
-            <div role="columnheader" onClick={() => toggleSort("venue")}>
+            <div
+              role="columnheader"
+              className={styles.venue}
+              onClick={() => toggleSort("venue")}
+            >
               Venue
             </div>
-            <div role="columnheader" onClick={() => toggleSort("result")}>
+            <div
+              role="columnheader"
+              className={styles.result}
+              onClick={() => toggleSort("result")}
+            >
               Result
             </div>
-            <div role="columnheader">Score Card</div>
+            <div role="columnheader" className={styles.scorecard}>
+              Score Card
+            </div>
           </div>
 
           {displayGames.map((game) => (

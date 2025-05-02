@@ -165,11 +165,14 @@ body {
   .venue { max-width: 50px; }
   .result { max-width: 50px; }
   .scorecard {
+    max-width: 60px;
+  }
+  /* .scorecard-link {
     color: #0000ff;
     text-decoration: underline;
     cursor: pointer;
     max-width: 60px;
-  }
+  } */
   
   /* Mobile font size */
   @media (max-width: 600px) {
@@ -177,10 +180,21 @@ body {
       font-size: 10px;
     }
   
-    .headerRow > div,
+    /* .headerRow > div,
     .row > div {
       padding: 6px;
+    } */
+
+    .headerRow > div {
+      padding: 6px;
       /* max-width: 50px; */
+      white-space: nowrap;         /* Prevent wrapping for headers */
+    }
+  
+    .row > div {
+      padding: 6px;
+      white-space: normal;         /* Allow wrapping for data cells */
+      word-break: break-word;      /* Break long words if needed */
     }
 
     .opponent { max-width: 50px; }
