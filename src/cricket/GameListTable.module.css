@@ -185,9 +185,9 @@ body {
 
     .opponent { max-width: 50px; }
     .tournament { max-width: 70px; }
-    .dateTime { max-width: 60px; }
-    .venue { max-width: 25px; }
-    .result { max-width: 25px; }
+    .dateTime { max-width: 50px; }
+    .venue { max-width: 30px; }
+    .result { max-width: 30px; }
     .scorecard { max-width: 25px; }
   }
   
