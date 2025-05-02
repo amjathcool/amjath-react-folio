@@ -148,9 +148,9 @@ body {
     border-left: 4px solid #00ffff;
   }
 
-  /* .dark .scorecard {
+  .dark .row .scorecard {
     color: #66d9ef;
-  } */
+  }
   
   /* Style links only in scorecard data cells */
   .row .scorecard {
