@@ -6,7 +6,7 @@ import GameListRouterWrapper from "./cricket/GameListRouterWrapper";
 import GameGrid from "./cricket/GameGrid";
 import { swlegendGames } from "./cricket/data/swlegend-games";
 import { Analytics } from "@vercel/analytics/react";
-import GameListTable from "./cricket/GameListTable";
+import Tryout from "./cricket/Tryout";
 
 // Register all Community features
 ModuleRegistry.registerModules([AllCommunityModule]);
@@ -24,9 +24,7 @@ const App: React.FC = () => {
           />
           <Route
             path="/try"
-            element={
-              <GameListTable teamName="SW Legends" games={swlegendGames} />
-            }
+            element={<Tryout teamName="SW Legends" games={swlegendGames} />}
           />
         </Routes>
       </Router>

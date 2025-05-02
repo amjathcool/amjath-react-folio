@@ -1,70 +1,70 @@
-/* Make sure to remove any horizontal overflow from the body */
 body {
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
     background-color: #ffffff;
     color: #000000;
     transition: background-color 0.3s, color 0.3s;
-}
-
-.container {
+  }
+  
+  .container {
     font-family: sans-serif;
     padding: 16px;
-    width: 100%; /* Ensure it stretches across the screen */
-    max-width: 100%; /* Ensure it doesn’t overflow beyond the screen */
+    width: 100%;
+    max-width: 100%;
     margin: auto;
     background-color: #ffffff;
     color: #000000;
     transition: background-color 0.3s, color 0.3s;
-    box-sizing: border-box; /* Ensure padding doesn’t affect width */
-    --grid-font-size: 14px; /* Set your desired font size here and this variable can be used for all of container's children*/
+    box-sizing: border-box;
+    --grid-font-size: 14px;
     font-size: var(--grid-font-size);
-    font-family: sans-serif;
-}
-
-.dark {
+  }
+  
+  .dark {
     background-color: #1f1f1f;
     color: #ffffff;
-}
-
-.header {
+  }
+  
+  .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 16px;
-}
-
-.title {
+  }
+  
+  .title {
     font-size: 18px;
     font-weight: bold;
-}
-
-/* Dark mode toggle switch */
-.switch {
+  }
+  
+  /* Dark mode toggle */
+  .switch {
     position: relative;
     display: inline-block;
     width: 46px;
     height: 24px;
-}
-
-.switch input {
+  }
+  
+  .switch input {
     opacity: 0;
     width: 0;
     height: 0;
-}
-
-.slider {
+  }
+  
+  .slider {
     position: absolute;
-    top: 0; left: 0;
-    right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-color: #ccc;
     border-radius: 24px;
     cursor: pointer;
     transition: 0.4s;
-}
-
-.slider:before {
+  }
+  
+  .slider:before {
     content: "";
     position: absolute;
     height: 18px;
@@ -74,82 +74,133 @@ body {
     background-color: white;
     border-radius: 50%;
     transition: 0.4s;
-}
-
-input:checked + .slider {
+  }
+  
+  input:checked + .slider {
     background-color: #4caf50;
-}
-
-input:checked + .slider:before {
+  }
+  
+  input:checked + .slider:before {
     transform: translateX(22px);
-}
-
-/* Grid */
-.grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 8px;
-}
-
-.headerRow, .row {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 8px;
-    padding: 12px;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    align-items: center;
-}
-
-.headerRow {
-    font-weight: bold;
-    background-color: #f0f0f0;
-}
-
-.dark .headerRow {
-    background-color: #444;
-}
-
-.row:hover {
-    background-color: #f9f9f9;
-}
-
-.dark .row:hover {
-    background-color: #333;
-}
-
-.darkModeToggle {
+  }
+  
+  .darkModeToggle {
     display: flex;
     align-items: center;
     gap: 8px;
-}
-
-.scorecardLink {
-    color: #0000ff;
-    text-decoration: underline;
-}
+  }
   
-  /* Override in dark mode */
-.dark .scorecardLink {
-    color: #66d9ef;
-}
-
-.scorecardLink:hover {
-    text-decoration: none;
-}
-
-.nextGame {
+  /* Grid Fixes */
+  .gridWrapper {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  .grid {
+    display: table;
+    width: 100%;
+    table-layout: auto;
+    border-collapse: collapse;
+  }
+  
+  .headerRow,
+  .row {
+    display: table-row;
+  }
+  
+  .headerRow > div,
+  .row > div {
+    display: table-cell;
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: left;
+    vertical-align: middle;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100px;
+    overflow: hidden;
+  }
+  
+  .headerRow {
+    font-weight: bold;
+    background-color: #f0f0f0;
+  }
+  
+  .dark .headerRow {
+    background-color: #444;
+  }
+  
+  .row:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .dark .row:hover {
+    background-color: #333;
+  }
+  
+  .nextGame {
     background-color: #66cdaa;
     border-left: 4px solid #FF6347;
-}
-
-.dark .nextGame {
-    background-color:  #4169e1;
+  }
+  
+  .dark .nextGame {
+    background-color: #4169e1;
     border-left: 4px solid #00ffff;
-}
+  }
 
-@media (min-width: 600px) {
+  .dark .row .scorecard {
+    color: #66d9ef;
+  }
+  
+  /* Style links only in scorecard data cells */
+  .row .scorecard {
+    color: #0000ff;              /* Adjust color as needed */
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .row .scorecard :hover {
+    text-decoration: none;
+  }
+
+  /* Prevent any accidental link styling in headers */
+  .headerRow .scorecard {
+    text-decoration: none;
+    pointer-events: none;
+    color: inherit;
+  }
+
+  .opponent { max-width: 100px; }
+  .tournament { max-width: 100px; }
+  .dateTime { max-width: 100px; }
+  .venue { max-width: 50px; }
+  .result { max-width: 50px; }
+  .scorecard {
+    max-width: 60px;
+  }
+  
+  /* Mobile font size */
+  @media (max-width: 600px) {
     .grid {
-        grid-template-columns: 1fr;
+      font-size: 10px;
     }
-}
+  
+    .headerRow > div {
+      padding: 6px;
+      white-space: nowrap;         /* Prevent wrapping for headers */
+    }
+  
+    .row > div {
+      padding: 6px;
+      white-space: normal;         /* Allow wrapping for data cells */
+      word-break: break-word;      /* Break long words if needed */
+    }
+
+    .opponent { max-width: 50px; }
+    .tournament { max-width: 70px; }
+    .dateTime { max-width: 50px; }
+    .venue { max-width: 30px; }
+    .result { max-width: 30px; }
+    .scorecard { max-width: 25px; }
+  }
+  

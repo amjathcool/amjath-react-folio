@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "./GameListTable.module.css";
+import styles from "./Tryout.module.css";
 import classNames from "classnames";
 import { Game } from "./game";
 import { track } from "@vercel/analytics";
@@ -18,7 +18,7 @@ const formatDateTime = (dateTimeStr: string): string => {
   return dateStr + " " + timeStr;
 };
 
-const GameListTable = ({ games, teamName }: GameListProps) => {
+const Tryout = ({ games, teamName }: GameListProps) => {
   const [displayGames, setDisplayGames] = useState<Game[]>(games);
   const [sortKey, setSortKey] = useState<keyof Game>("dateTime");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
@@ -162,4 +162,4 @@ const GameListTable = ({ games, teamName }: GameListProps) => {
   );
 };
 
-export default GameListTable;
+export default Tryout;

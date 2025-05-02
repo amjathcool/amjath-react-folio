@@ -74,55 +74,89 @@ const GameList = ({ games, teamName }: GameListProps) => {
               id="darkModeToggle"
               type="checkbox"
               checked={darkMode}
-              onChange={() => handleDarkMode()}
+              onChange={handleDarkMode}
             />
             <span className={styles.slider}></span>
           </label>
         </div>
       </div>
 
-      <div className={styles.grid} role="table">
-        <div className={styles.headerRow} role="row">
-          <div role="columnheader" onClick={() => toggleSort("opponent")}>
-            Opponent
-          </div>
-          <div role="columnheader" onClick={() => toggleSort("tournament")}>
-            Tournament
-          </div>
-          <div role="columnheader" onClick={() => toggleSort("dateTime")}>
-            Date Time
-          </div>
-          <div role="columnheader" onClick={() => toggleSort("venue")}>
-            Venue
-          </div>
-          <div role="columnheader" onClick={() => toggleSort("result")}>
-            Result
-          </div>
-          <div role="columnheader">Scorecard</div>
-        </div>
-
-        {displayGames.map((game) => (
-          <div
-            key={game.id}
-            role="row"
-            className={classNames(styles.row, {
-              [styles.nextGame]: nextGame && nextGame.id === game.id,
-            })}
-          >
-            <div role="cell">{game.opponent}</div>
-            <div role="cell">{game.tournament}</div>
-            <div role="cell">{formatDateTime(game.dateTime)}</div>
-            <div role="cell">{game.venue}</div>
-            <div role="cell">{game.result}</div>
+      <div className={styles.gridWrapper}>
+        <div className={styles.grid} role="table">
+          <div className={styles.headerRow} role="row">
             <div
-              role="cell"
-              onClick={(e) => handleScorecardClick(e, game.scorecard)}
-              className={styles.scorecardLink}
+              role="columnheader"
+              className={styles.opponent}
+              onClick={() => toggleSort("opponent")}
             >
-              {game.scorecard && "View"}
+              Opponent
+            </div>
+            <div
+              role="columnheader"
+              className={styles.tournament}
+              onClick={() => toggleSort("tournament")}
+            >
+              Tournament
+            </div>
+            <div
+              role="columnheader"
+              className={styles.dateTime}
+              onClick={() => toggleSort("dateTime")}
+            >
+              Date Time
+            </div>
+            <div
+              role="columnheader"
+              className={styles.venue}
+              onClick={() => toggleSort("venue")}
+            >
+              Venue
+            </div>
+            <div
+              role="columnheader"
+              className={styles.result}
+              onClick={() => toggleSort("result")}
+            >
+              Result
+            </div>
+            <div role="columnheader" className={styles.scorecard}>
+              Scorecard
             </div>
           </div>
-        ))}
+
+          {displayGames.map((game) => (
+            <div
+              key={game.id}
+              role="row"
+              className={classNames(styles.row, {
+                [styles.nextGame]: nextGame && nextGame.id === game.id,
+              })}
+            >
+              <div className={styles.opponent} role="cell">
+                {game.opponent}
+              </div>
+              <div className={styles.tournament} role="cell">
+                {game.tournament}
+              </div>
+              <div className={styles.dateTime} role="cell">
+                {formatDateTime(game.dateTime)}
+              </div>
+              <div className={styles.venue} role="cell">
+                {game.venue}
+              </div>
+              <div className={styles.result} role="cell">
+                {game.result}
+              </div>
+              <div
+                role="cell"
+                onClick={(e) => handleScorecardClick(e, game.scorecard)}
+                className={styles.scorecard}
+              >
+                {game.scorecard && "View"}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
