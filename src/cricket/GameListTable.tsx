@@ -110,7 +110,7 @@ const GameListTable = ({ games, teamName }: GameListProps) => {
                 [styles.nextGame]: nextGame && nextGame.id === game.id,
               })}
             >
-              <div role="cell">{game.opponent}</div>
+              <div role="cell" title={game.opponent}>{game.opponent}</div>
               <div role="cell">{game.tournament}</div>
               <div role="cell">{formatDateTime(game.dateTime)}</div>
               <div role="cell">{game.venue}</div>
