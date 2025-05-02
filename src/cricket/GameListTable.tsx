@@ -110,15 +110,25 @@ const GameListTable = ({ games, teamName }: GameListProps) => {
                 [styles.nextGame]: nextGame && nextGame.id === game.id,
               })}
             >
-              <div role="cell" title={game.opponent}>{game.opponent}</div>
-              <div role="cell">{game.tournament}</div>
-              <div role="cell">{formatDateTime(game.dateTime)}</div>
-              <div role="cell">{game.venue}</div>
-              <div role="cell">{game.result}</div>
+              <div className={styles.opponent} role="cell">
+                {game.opponent}
+              </div>
+              <div className={styles.tournament} role="cell">
+                {game.tournament}
+              </div>
+              <div className={styles.dateTime} role="cell">
+                {formatDateTime(game.dateTime)}
+              </div>
+              <div className={styles.venue} role="cell">
+                {game.venue}
+              </div>
+              <div className={styles.result} role="cell">
+                {game.result}
+              </div>
               <div
                 role="cell"
                 onClick={(e) => handleScorecardClick(e, game.scorecard)}
-                className={styles.scorecardLink}
+                className={styles.scorecard}
               >
                 {game.scorecard && "View"}
               </div>

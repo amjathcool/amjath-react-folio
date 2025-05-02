@@ -141,20 +141,6 @@ body {
     background-color: #333;
   }
   
-  .scorecardLink {
-    color: #0000ff;
-    text-decoration: underline;
-    cursor: pointer;
-  }
-  
-  .dark .scorecardLink {
-    color: #66d9ef;
-  }
-  
-  .scorecardLink:hover {
-    text-decoration: none;
-  }
-  
   .nextGame {
     background-color: #66cdaa;
     border-left: 4px solid #FF6347;
@@ -163,6 +149,26 @@ body {
   .dark .nextGame {
     background-color: #4169e1;
     border-left: 4px solid #00ffff;
+  }
+
+  .dark .scorecard {
+    color: #66d9ef;
+  }
+  
+  .scorecard:hover {
+    text-decoration: none;
+  }
+
+  .opponent { max-width: 100px; }
+  .tournament { max-width: 100px; }
+  .dateTime { max-width: 100px; }
+  .venue { max-width: 50px; }
+  .result { max-width: 50px; }
+  .scorecard {
+    color: #0000ff;
+    text-decoration: underline;
+    cursor: pointer;
+    max-width: 60px;
   }
   
   /* Mobile font size */
@@ -174,7 +180,14 @@ body {
     .headerRow > div,
     .row > div {
       padding: 6px;
-      max-width: 100px;
+      max-width: 50px;
     }
+
+    .opponent { max-width: 50px; }
+    .tournament { max-width: 50px; }
+    .dateTime { max-width: 50px; }
+    .venue { max-width: 30px; }
+    .result { max-width: 30px; }
+    .scorecard { max-width: 40px; }
   }
   
