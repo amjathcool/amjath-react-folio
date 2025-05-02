@@ -99,7 +99,7 @@ const GameListTable = ({ games, teamName }: GameListProps) => {
             <div role="columnheader" onClick={() => toggleSort("result")}>
               Result
             </div>
-            <div role="columnheader">Scorecard</div>
+            <div role="columnheader">Score Card</div>
           </div>
 
           {displayGames.map((game) => (

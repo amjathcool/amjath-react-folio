@@ -183,11 +183,11 @@ body {
       max-width: 50px;
     }
 
-    .opponent { max-width: 50px; }
-    .tournament { max-width: 50px; }
-    .dateTime { max-width: 50px; }
-    .venue { max-width: 30px; }
-    .result { max-width: 30px; }
-    .scorecard { max-width: 40px; }
+    .opponent { max-width: 55px; }
+    .tournament { max-width: 55px; }
+    .dateTime { max-width: 55px; }
+    .venue { max-width: 25px; }
+    .result { max-width: 25px; }
+    .scorecard { max-width: 30px; }
   }
   
