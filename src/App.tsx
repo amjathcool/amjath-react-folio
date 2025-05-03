@@ -7,6 +7,7 @@ import GameGrid from "./cricket/GameGrid";
 import { swlegendGames } from "./cricket/data/swlegend-games";
 import { Analytics } from "@vercel/analytics/react";
 import Tryout from "./cricket/Tryout";
+import SwLandingPage from "./cricket/SwLandingPage";
 
 // Register all Community features
 ModuleRegistry.registerModules([AllCommunityModule]);
@@ -16,8 +17,8 @@ const App: React.FC = () => {
     <>
       <Router>
         <Routes>
+          <Route path="/" element={<SwLandingPage />} />
           <Route path="/:teamId" element={<GameListRouterWrapper />} />
-          <Route path="*" element={<div>404: Page Not Found</div>} />
           <Route
             path="/ag"
             element={<GameGrid teamName="Amjath" games={swlegendGames} />}
