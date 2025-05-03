@@ -90,7 +90,6 @@ body {
     gap: 8px;
   }
   
-  /* Grid Fixes */
   .gridWrapper {
     overflow-x: hidden;
     width: 100%;
@@ -124,6 +123,7 @@ body {
   .headerRow {
     font-weight: bold;
     background-color: #f0f0f0;
+    cursor: pointer;
   }
   
   .dark .headerRow {
@@ -148,21 +148,21 @@ body {
     border-left: 4px solid #00ffff;
   }
 
-  .dark .row .scorecard {
+  .dark .row .link {
     color: #66d9ef;
   }
   
   /* Style links only in scorecard data cells */
-  .row .scorecard {
-    color: #0000ff;              /* Adjust color as needed */
+  .row .link {
+    color: #0000ff;
     text-decoration: underline;
     cursor: pointer;
   }
-
-  .row .scorecard :hover {
+  
+  .row .link:hover {
     text-decoration: none;
   }
-
+  
   /* Prevent any accidental link styling in headers */
   .headerRow .scorecard {
     text-decoration: none;

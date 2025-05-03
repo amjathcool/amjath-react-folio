@@ -3,6 +3,7 @@ import styles from "./GameList.module.css";
 import classNames from "classnames";
 import { Game } from "./game";
 import { track } from "@vercel/analytics";
+import venueAddressMap from "./venue-address-map";
 
 type GameListProps = {
   teamName: string;
@@ -19,7 +20,10 @@ const formatDateTime = (dateTimeStr: string): string => {
 };
 
 const GameList = ({ games, teamName }: GameListProps) => {
-  const [displayGames, setDisplayGames] = useState<Game[]>(games);
+  const sortedGames = games.sort(
+    (a, b) => new Date(a.dateTime).getTime() - new Date(b.dateTime).getTime()
+  );
+  const [displayGames, setDisplayGames] = useState<Game[]>(sortedGames);
   const [sortKey, setSortKey] = useState<keyof Game>("dateTime");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
   const [darkMode, setDarkMode] = useState(false);
@@ -45,9 +49,20 @@ const GameList = ({ games, teamName }: GameListProps) => {
   };
 
   const handleScorecardClick = (e: React.MouseEvent, url: string) => {
+    if (url) {
+      e.stopPropagation(); // Prevent row click
+      window.open(url, "_blank"); // Open in new tab
+      track("View Scorecard");
+    }
+  };
+
+  const handleVenueClick = (e: React.MouseEvent, venue: string) => {
     e.stopPropagation(); // Prevent row click
-    window.open(url, "_blank"); // Open in new tab
-    track("View Scorecard");
+    const addressUrl = venueAddressMap[venue];
+    if (addressUrl) {
+      window.open(addressUrl, "_blank"); // Open in new tab
+    }
+    track("View Venue");
   };
 
   const handleDarkMode = () => {
@@ -103,7 +118,7 @@ const GameList = ({ games, teamName }: GameListProps) => {
               className={styles.dateTime}
               onClick={() => toggleSort("dateTime")}
             >
-              Date Time
+              DateTime
             </div>
             <div
               role="columnheader"
@@ -141,7 +156,11 @@ const GameList = ({ games, teamName }: GameListProps) => {
               <div className={styles.dateTime} role="cell">
                 {formatDateTime(game.dateTime)}
               </div>
-              <div className={styles.venue} role="cell">
+              <div
+                role="cell"
+                className={classNames(styles.venue, styles.link)}
+                onClick={(e) => handleVenueClick(e, game.venue)}
+              >
                 {game.venue}
               </div>
               <div className={styles.result} role="cell">
@@ -150,7 +169,9 @@ const GameList = ({ games, teamName }: GameListProps) => {
               <div
                 role="cell"
                 onClick={(e) => handleScorecardClick(e, game.scorecard)}
-                className={styles.scorecard}
+                className={classNames(styles.scorecard, {
+                  [styles.link]: !!game.scorecard,
+                })}
               >
                 {game.scorecard && "View"}
               </div>
