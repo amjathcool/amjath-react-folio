@@ -1,11 +1,6 @@
 import { useParams } from "react-router-dom";
 import GameList from "./GameList";
-import { swlegendGames } from "./data/swlegend-games";
-
-const teamDataMap: Record<string, { name: string; games: any[] }> = {
-  legends: { name: "SW Legends", games: swlegendGames },
-  kakatiya: { name: "Kakatiya", games: [] },
-};
+import teamDataMap from "./map/team-data-map";
 
 const GameListRouterWrapper = () => {
   const { teamId } = useParams<{ teamId: string }>();

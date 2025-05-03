@@ -3,7 +3,7 @@ import styles from "./GameList.module.css";
 import classNames from "classnames";
 import { Game } from "./game";
 import { track } from "@vercel/analytics";
-import venueAddressMap from "./venue-address-map";
+import venueAddressMap from "./map/venue-address-map";
 
 type GameListProps = {
   teamName: string;
