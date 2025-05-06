@@ -148,6 +148,15 @@ body {
     border-left: 4px solid #00ffff;
   }
 
+  /* Exclude nextGame row from hover effect */
+  .nextGame:hover {
+    background-color: #66cdaa; /* Retain original background color */
+  }
+
+  .dark .nextGame:hover {
+    background-color: #4169e1; /* Retain original background color */
+  }
+
   .dark .row .link {
     color: #66d9ef;
   }
