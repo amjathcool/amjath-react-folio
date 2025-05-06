@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
-import {
-  fetchWeatherForecastByZipcode,
-  WeatherForecast,
-} from "./services/weather-service";
+import React from "react";
+import { useWeatherForecast } from "./hooks/useWeatherForecast";
+import { WeatherForecast } from "./services/weather-service";
 
 interface WeatherIconProps {
   datetime: string; // ISO string, e.g. "2025-05-05T15:00:00"
@@ -39,20 +37,15 @@ const WeatherIcon: React.FC<WeatherIconProps> = ({
   datetime,
   zipcode = "43035",
 }) => {
-  const [icon, setIcon] = useState<string | null>(null);
+  const { data: forecasts, isLoading, error } = useWeatherForecast(zipcode);
+  if (isLoading) return <div>Loading...</div>;
+  if (error || !forecasts) return <div>⚠️</div>;
 
-  useEffect(() => {
-    async function loadForecast() {
-      const forecasts = await fetchWeatherForecastByZipcode(zipcode);
-      const match = findClosestForecast(forecasts, datetime);
-      const condition = match?.weather?.[0]?.main;
-      setIcon(getWeatherIcon(condition || ""));
-    }
+  const match = findClosestForecast(forecasts, datetime);
+  const condition = match?.weather?.[0]?.main;
+  const icon = getWeatherIcon(condition || "");
 
-    loadForecast();
-  }, [datetime, zipcode]);
-
-  return <div>{icon ?? "Loading..."}</div>;
+  return <div>{icon}</div>;
 };
 
 export default WeatherIcon;

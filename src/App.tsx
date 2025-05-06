@@ -8,28 +8,33 @@ import { swlegendGames } from "./cricket/data/swlegend-games";
 import { Analytics } from "@vercel/analytics/react";
 import Tryout from "./cricket/Tryout";
 import SwLandingPage from "./cricket/SwLandingPage";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 // Register all Community features
 ModuleRegistry.registerModules([AllCommunityModule]);
 
+const queryClient = new QueryClient();
+
 const App: React.FC = () => {
   return (
     <>
-      <Router>
-        <Routes>
-          <Route path="/" element={<SwLandingPage />} />
-          <Route path="/:teamId" element={<GameListRouterWrapper />} />
-          <Route
-            path="/ag"
-            element={<GameGrid teamName="Amjath" games={swlegendGames} />}
-          />
-          <Route
-            path="/try"
-            element={<Tryout teamName="SW Legends" games={swlegendGames} />}
-          />
-        </Routes>
-      </Router>
-      <Analytics />
+      <QueryClientProvider client={queryClient}>
+        <Router>
+          <Routes>
+            <Route path="/" element={<SwLandingPage />} />
+            <Route path="/:teamId" element={<GameListRouterWrapper />} />
+            <Route
+              path="/ag"
+              element={<GameGrid teamName="Amjath" games={swlegendGames} />}
+            />
+            <Route
+              path="/try"
+              element={<Tryout teamName="SW Legends" games={swlegendGames} />}
+            />
+          </Routes>
+        </Router>
+        <Analytics />
+      </QueryClientProvider>
     </>
   );
 };
