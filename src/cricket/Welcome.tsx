@@ -23,7 +23,6 @@ const Welcome = () => {
       marginTop: "0.5rem",
       fontSize: "1rem",
       color: "#333",
-      maxWidth: "400px",
       lineHeight: "1.3",
     },
   };
