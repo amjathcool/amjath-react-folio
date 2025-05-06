@@ -1,40 +1,22 @@
 import { Game } from '../game';
 
 export const swtigersGames: Game [] = [
-    {
-      id: 1,
-      opponent: "DUCC Firing Bulls",
-      tournament: "DCC T15",
-      dateTime: "2025-04-24T17:45",
-      venue: "CARA",
-      result: "Lost",
-      scorecard: "https://cricclubs.com/DublinCricketClub/viewScorecard.do?matchId=1646&clubId=2317"
-    },
-    {
-      id: 2,
-      opponent: "Everest CC",
-      tournament: "DCC T15",
-      dateTime: "2025-05-11T15:30",
-      venue: "CARA",
-      result: "",
-      scorecard: ""
-    },
-    {
-      id: 3,
-      opponent: "Crown Star",
-      tournament: "DCC T15",
-      dateTime: "2025-05-04T15:30",
-      venue: "CARA",
-      result: "",
-      scorecard: ""
-    },
-    {
-      id: 4,
-      opponent: "CAFC",
-      tournament: "PDCC T15",
-      dateTime: "2025-04-17T18:00",
-      venue: "PCG",
-      result: "Lost",
-      scorecard: "https://cricclubs.com/PDCC/viewScorecard.do?matchId=1516&clubId=21754"
-    },
-  ];
+  {
+    id: 1,
+    opponent: "DUCC Firing Bulls",
+    tournament: "DCC T15",
+    dateTime: "2025-04-24T17:45",
+    venue: "CARA",
+    result: "Lost",
+    scorecard: "https://cricclubs.com/DublinCricketClub/viewScorecard.do?matchId=1646&clubId=2317"
+  },
+  {
+    id: 2,
+    opponent: "CAFC",
+    tournament: "PDCC T15",
+    dateTime: "2025-04-17T18:00",
+    venue: "PCG",
+    result: "Lost",
+    scorecard: "https://cricclubs.com/PDCC/viewScorecard.do?matchId=1516&clubId=21754"
+  },
+];

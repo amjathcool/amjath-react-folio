@@ -58,7 +58,8 @@ const GameList = ({ games, teamName }: GameListProps) => {
 
   const handleVenueClick = (e: React.MouseEvent, venue: string) => {
     e.stopPropagation(); // Prevent row click
-    const addressUrl = venueAddressMap[venue];
+    const venueData = venueAddressMap[venue];
+    const addressUrl = venueData?.url;
     if (addressUrl) {
       window.open(addressUrl, "_blank"); // Open in new tab
     }
