@@ -8,7 +8,6 @@ const Welcome = () => {
     container: {
       fontFamily: "'Arial', sans-serif", // Apply sans-serif font
       textAlign: "center" as const,
-      backgroundColor: "#f7f9fc",
       borderBottom: "2px solid #e0e0e0",
     },
     appName: {
@@ -44,8 +43,9 @@ const Welcome = () => {
         <h1 style={styles.appName}>CrickTrak</h1>
         <div style={styles.built}>Built by Amjath</div>
         <p style={styles.message}>
-          Game schedule, weather, maps and scores — your team’s game hub made
-          simple.
+          Game schedule, weather, maps and scores
+          <br />
+          your team’s game hub made simple.
         </p>
       </div>
     </>
