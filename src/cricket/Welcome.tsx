@@ -44,7 +44,7 @@ const Welcome = () => {
         <p style={styles.message}>
           Game schedule, weather, maps and scores
           <br />
-          your team’s game hub made simple.
+          your team’s game hub made simple
         </p>
       </div>
     </>
