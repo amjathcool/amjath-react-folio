@@ -3,7 +3,8 @@ import styles from "./GameList.module.css";
 import classNames from "classnames";
 import { Game } from "./game";
 import { track } from "@vercel/analytics";
-import venueAddressMap from "./map/venue-address-map";
+import venueAddressMap from "./maps/venue-address-map";
+import WeatherIcon from "./WeatherIcon";
 
 type GameListProps = {
   teamName: string;
@@ -79,6 +80,11 @@ const GameList = ({ games, teamName }: GameListProps) => {
       (a, b) => new Date(a.dateTime).getTime() - new Date(b.dateTime).getTime()
     )[0];
 
+  const getZipByVenue = (venue: string): string => {
+    const venueData = venueAddressMap[venue];
+    return venueData?.zipcode ?? "";
+  };
+
   return (
     <div className={classNames(styles.container, { [styles.dark]: darkMode })}>
       <div className={styles.header}>
@@ -121,6 +127,9 @@ const GameList = ({ games, teamName }: GameListProps) => {
             >
               DateTime
             </div>
+            <div role="columnheader" className={styles.scorecard}>
+              Wx
+            </div>
             <div
               role="columnheader"
               className={styles.venue}
@@ -156,6 +165,12 @@ const GameList = ({ games, teamName }: GameListProps) => {
               </div>
               <div className={styles.dateTime} role="cell">
                 {formatDateTime(game.dateTime)}
+              </div>
+              <div role="cell">
+                <WeatherIcon
+                  datetime={game.dateTime}
+                  zipcode={getZipByVenue(game.venue)}
+                />
               </div>
               <div
                 role="cell"

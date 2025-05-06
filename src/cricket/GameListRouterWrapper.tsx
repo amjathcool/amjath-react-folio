@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import GameList from "./GameList";
-import teamDataMap from "./map/team-data-map";
+import teamDataMap from "./maps/team-data-map";
 
 const GameListRouterWrapper = () => {
   const { teamId } = useParams<{ teamId: string }>();
