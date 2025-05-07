@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import teamDataMap from "./maps/team-data-map";
-import Welcome from "./Welcome";
+import WelcomeHeader from "./WelcomeHeader";
 
 const SwLandingPage = () => {
   return (
     <>
-      <Welcome />
+      <WelcomeHeader />
       <div
         style={{
           textAlign: "center",

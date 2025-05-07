@@ -1,4 +1,4 @@
-const Welcome = () => {
+const WelcomeHeader = () => {
   // CSS in JS
   const fadeIn = {
     animation: "fadeIn 2s ease-in-out",
@@ -51,4 +51,4 @@ const Welcome = () => {
   );
 };
 
-export default Welcome;
+export default WelcomeHeader;
