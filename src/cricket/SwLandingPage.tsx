@@ -26,7 +26,7 @@ const SwLandingPage = () => {
           Select Your Team
         </h3>
         <ul style={{ listStyle: "none", padding: 0 }}>
-          {Object.entries(teamDataMap).map(([routeKey, { name }], index) => (
+          {Object.entries(teamDataMap).map(([routeKey, { name }]) => (
             <li
               key={routeKey}
               style={{
