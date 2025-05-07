@@ -14,7 +14,7 @@ const SwLandingPage = () => {
           fontFamily: "'Arial', sans-serif", // Apply sans-serif font
         }}
       >
-        <h2
+        <h3
           style={{
             backgroundColor: "#4CAF50", // Green background for the heading
             color: "white", // White text color
@@ -24,7 +24,7 @@ const SwLandingPage = () => {
           }}
         >
           Select Your Team
-        </h2>
+        </h3>
         <ul style={{ listStyle: "none", padding: 0 }}>
           {Object.entries(teamDataMap).map(([routeKey, { name }], index) => (
             <li
