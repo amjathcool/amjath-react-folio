@@ -31,7 +31,7 @@ const SwLandingPage = () => {
               key={routeKey}
               style={{
                 margin: "10px 0",
-                backgroundColor: index % 2 === 0 ? "#f0f0f0" : "#d3d3d3", // Alternating background colors
+                backgroundColor: "#f0f0f0",
                 padding: "10px",
                 borderRadius: "5px",
               }}
