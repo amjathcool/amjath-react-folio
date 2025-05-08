@@ -1,6 +1,6 @@
 import React from "react";
-import { useWeatherForecast } from "./hooks/useWeatherForecast";
-import { WeatherForecast } from "./services/weather-service";
+import { useWeatherForecast } from "../hooks/useWeatherForecast";
+import { WeatherForecast } from "../services/weather-service";
 
 interface WeatherIconProps {
   datetime: string; // ISO string, e.g. "2025-05-05T15:00:00"

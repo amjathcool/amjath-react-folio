@@ -2,9 +2,9 @@ import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Lazy load route components
-const SwLandingPage = lazy(() => import("./cricket/SwLandingPage"));
+const SwLandingPage = lazy(() => import("./cricket/components/SwLandingPage"));
 const GameListRouterWrapper = lazy(
-  () => import("./cricket/GameListRouterWrapper")
+  () => import("./cricket/components/GameListRouterWrapper")
 );
 
 const Loading: React.FC = () => <div>Loading page...</div>;

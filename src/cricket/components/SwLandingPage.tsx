@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import teamDataMap from "./maps/team-data-map";
+import teamDataMap from "../maps/team-data-map";
 import WelcomeHeader from "./WelcomeHeader";
 
 const SwLandingPage = () => {

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styles from "./GameList.module.css";
 import classNames from "classnames";
-import { Game } from "./game";
+import { Game } from "../game";
 import { track } from "@vercel/analytics";
-import venueAddressMap from "./maps/venue-address-map";
+import venueAddressMap from "../maps/venue-address-map";
 import WeatherIcon from "./WeatherIcon";
 
 type GameListProps = {
